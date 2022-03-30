@@ -1,21 +1,4 @@
-import { ADD_CONTACT, CHANGE_FAVOURITE, DELETE_CONTACT, RETRIEVE_CONTACTS, UPDATE_CONTACT } from "../actions/types";
-// const initialState = [
-//     {
-//         id:0,
-//         name:"Ashwin",
-//         email:"mail@mail.com",
-//         phoneNumber:98765,
-//         image: "https://media.istockphoto.com/photos/black-stone-wall-texture-picture-id471060950?s=612x612"
-//     },
-//     {
-//         id:1,
-//         name:"Richen",
-//         email:"richenmail@mail.com",
-//         phoneNumber:35678,
-//         image: "https://media.istockphoto.com/photos/black-stone-wall-texture-picture-id471060950?s=612x612"
-//     },
-// ];
-
+import { ADD_CONTACT, CHANGE_FAVOURITE, DELETE_CONTACT, RETRIEVE_CONTACTS, } from "../actions/types";
 const initialState ={
     contactList :[]
 }
@@ -38,8 +21,7 @@ const contactReducer = (state = initialState,action)=>{
             var id = action.payload.id;
             var index = state.contactList.findIndex((contact)=>{
                 return contact._id == id;
-            });
-            console.log(index);
+            });            
             state.contactList[index].favourite = action.payload.favourite;
             return state;
         case "RESET_CONTACT":

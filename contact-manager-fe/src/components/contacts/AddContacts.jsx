@@ -35,39 +35,25 @@ const AddContact = () =>{
             setEmail(ud.email);
             setPhoneNumber(ud.phone.mobileNumber);
             setWorkNumber(ud.phone.workNumber);
+            setHomeNumber(ud.phone.setHomeNumber)
             setHomeNumber(ud.phone.homeNumber);
             setAddress(ud.address);
             setPhoto(ud.photoName);
         }
     }
-    
-    
-    // const contacts = useSelector(state => state.contactReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    // const checkContactEmailExists = contacts.filter((contact) =>
-    //   contact.email === email ? contact : null
-    // );
-    // const checkContactPhoneExists = contacts.filter((contact) =>
-    //   contact.phoneNumber === phoneNumber ? contact : null
-    // );
-    const handleSubmit= () =>{
-        // e.preventDefault();
-        if (!email || !name || !phoneNumber) {
+    
+    const handleSubmit= () =>{        
+        if (!email || !name || !phoneNumber || !address || !photo) {
             return toast.warning("All the fields are required!!");
-        }
-        // if (checkContactEmailExists.length > 0) {
-        //     return toast.error("This email already exists!!");
-        //   }
-        //   if (checkContactPhoneExists.length > 0) {
-        //     return toast.error("This phone number already exists!!");
-        //   }               
+        }                      
         var fd = new FormData();
         fd.append("name",name)
         fd.append("email",email)
         fd.append("mobileNumber",phoneNumber)
         fd.append("homeNumber",homeNumber)
+        fd.append("workNumber",workNumber)
         fd.append("address",address)        
         fd.append("photo",photo);        
         dispatch(addContact(fd));
@@ -75,23 +61,16 @@ const AddContact = () =>{
         navigate("/");
     }
     
-    const handleEditSubmit= () =>{
-        console.log("hello");
-        // e.preventDefault();
+    const handleEditSubmit= () =>{                
         if (!email || !name || !phoneNumber) {
             return toast.warning("All the fields are required!!");
-        }
-        // if (checkContactEmailExists.length > 0) {
-        //     return toast.error("This email already exists!!");
-        //   }
-        //   if (checkContactPhoneExists.length > 0) {
-        //     return toast.error("This phone number already exists!!");
-        //   }               
+        }                    
         var efd = new FormData();        
         efd.append("name",name)
         efd.append("email",email)
         efd.append("mobileNumber",phoneNumber)
-        // efd.append("homeNumber",homeNumber)
+        efd.append("homeNumber",homeNumber)
+        efd.append("workNumber",workNumber)
         efd.append("address",address)        
         efd.append("photo",photo);                
         dispatch(editContact(contactId,efd,()=>{navigate("/")}));
@@ -131,7 +110,7 @@ const AddContact = () =>{
                                 }} placeholder="photo"/> 
                         </div>
                         <div className="form-group my-10 fg">
-                            <input type="text" name="" id="" value={address} onChange={e => setAddress(e.target.value)} placeholder="Email" className="form-control"/>
+                            <input type="text" name="" id="" value={address} onChange={e => setAddress(e.target.value)} placeholder="Address" className="form-control"/>
                         </div>
                         <div className="form-group my-10 fg">
                             {isEdit?

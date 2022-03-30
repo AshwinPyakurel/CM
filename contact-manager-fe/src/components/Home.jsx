@@ -12,12 +12,7 @@ const Home = () =>{
     const dispatch = useDispatch();
     useEffect(()=>{
       dispatch(retriveContacts());
-    },[])
-
-    // const deleteContact = (id) =>{
-    //   dispatch({type:DELETE_CONTACT, payload:id});
-    //   toast.success("Contact deleted successfully");
-    // }
+    },[])    
     return(
         <div className="container">
             <div className="row">
