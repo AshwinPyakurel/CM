@@ -4,12 +4,12 @@ import Navbar from './components/NavBar';
 import { Routes,Route,Navigate, BrowserRouter as Router } from "react-router-dom";
 import Home from './components/Home';
 import AddContact from './components/contacts/AddContacts';
-import EditContact from './components/contacts/EditContact';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import { useDispatch, useSelector } from 'react-redux';
 import { authCheck } from './actions/authActions';
 import { useEffect } from 'react';
+import "./components/style.css";
 const App = () => {
   var dispatch = useDispatch();
   useEffect(()=>{

@@ -1,10 +1,7 @@
-import { CREATE_CONTACT,
-    RETRIEVE_CONTACTS,
-    UPDATE_CONTACT,
-    DELETE_CONTACT, 
+import {
+    RETRIEVE_CONTACTS,        
     CHANGE_FAVOURITE,} from './types';
 import ContactService from '../service/contact.service';
-import axios from 'axios';
 
 
 export const listContacts = (payload)=>{

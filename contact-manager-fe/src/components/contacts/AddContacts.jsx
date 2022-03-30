@@ -101,17 +101,17 @@ const AddContact = () =>{
     return(
         <div className="container">
             <div className="row">
-                <h1 className="display-3 text-center"> {isEdit?"Edit":"Add"} Contact                   
+                <h1 className="display-5 my-3 text-center bc-title"> {isEdit?"Edit":"Add"} Contact                   
                 </h1>
                 <div className="col-md-6 shadow mx-auto p-5">
                     {/* <form action="" method="post" onSubmit={handleSubmit}> */}
-                        <div className="form-group my-10" encType= "multipart/form-data">
+                        <div className="form-group my-10 fg" encType= "multipart/form-data">
                             <input type="text" name="" id="" value={name} onChange={e => setName(e.target.value)} placeholder="Name" className="form-control"/>
                         </div>
-                        <div className="form-group my-10">
+                        <div className="form-group my-10 fg">
                             <input type="text" name="" id="" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="form-control"/>
                         </div>
-                        <div className="col-md-12">
+                        <div className="col-md-12 fg">
                             <div className="row">
                                 <div className="col-md-4">
                                 <input type="text" className="form-control" placeholder="Work Number" value={workNumber} onChange={e => setWorkNumber(e.target.value)}></input>
@@ -124,21 +124,21 @@ const AddContact = () =>{
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group my-10">
+                        <div className="form-group my-10 fg">
                             <input type="file" name="" id="" value={photoName} onChange={e => {
                                 setPhoto(e.target.files[0])
                                 setPhotoName(e.target.value);
                                 }} placeholder="photo"/> 
                         </div>
-                        <div className="form-group my-10">
+                        <div className="form-group my-10 fg">
                             <input type="text" name="" id="" value={address} onChange={e => setAddress(e.target.value)} placeholder="Email" className="form-control"/>
                         </div>
-                        <div className="form-group my-10">
+                        <div className="form-group my-10 fg">
                             {isEdit?
                             <input type="submit" value="editcontact" name="" id="" placeholder="photo" className="btn-block btn-dark"
                             onClick={handleEditSubmit}
                             />:
-                            <input type="submit" value="addcontact" name="" id="" placeholder="photo" className="btn-block btn-dark"
+                            <input type="submit" value="Add Contact" name="" id="" placeholder="photo" className="btn-block btn-dark"
                                     onClick={handleSubmit}
                                 />}
                         </div>

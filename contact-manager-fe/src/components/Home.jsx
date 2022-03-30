@@ -1,12 +1,9 @@
-import { Button } from "bootstrap";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { deleteContact, editFavourite, retriveContacts } from "../actions/contacts.action";
-import { DELETE_CONTACT } from "../actions/types";
-import {FaMobile,FaHome,FaBuilding,FaStar,FaRegStar} from "react-icons/fa"
+import {FaMobile,FaHome,FaBuilding,FaStar,FaRegStar,FaEdit,FaTrash,FaPlus} from "react-icons/fa"
 
 const Home = () =>{
     const contacts = useSelector(state => state.contactReducer.contactList);    
@@ -24,8 +21,8 @@ const Home = () =>{
     return(
         <div className="container">
             <div className="row">
-                <div className="col-md-12 my-5 text-right">
-                    <Link to={'/addContact'} className= "btn btn-outline-dark">Add Contacts</Link>
+                <div className="col-md-12 my-5">
+                    <Link to={'/addContact'} className= "btn btn-outline-dark"><FaPlus/> Add Contacts</Link>
                 </div>
                 <div className="col-md-10 mx-auto">
                     <table className="table table-hover">
@@ -94,14 +91,14 @@ const Home = () =>{
                         to={`/editcontact/${contact._id}`}
                         className="btn btn-sm btn-primary mr-1"
                       >
-                        Edit
+                        <FaEdit/>
                       </Link>
                       <button
                         type="button"                        
                         className="btn btn-sm btn-danger"
                         onClick={() => {dispatch(deleteContact(contact._id))}}
                       >
-                        Delete
+                        <FaTrash/>
                       </button>
                     </td>
                   </tr>

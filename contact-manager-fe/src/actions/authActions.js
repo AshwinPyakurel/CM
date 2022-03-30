@@ -2,7 +2,6 @@ import cookie from "react-cookies"
 import { toast } from "react-toastify"
 import { loginService, registerService } from "../service/auth.service"
 import { MAKE_AUTHENTICATED, MAKE_UNAUTHENTICATED } from "./types"
-import axios from "axios";
 
 export const MakeAuthenticate = (payload)=>{
     
