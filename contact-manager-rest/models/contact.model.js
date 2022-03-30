@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const Phone = new mongoose.Schema({
     mobileNumber: {
-        type: Number,
+        type: String,
         required: true,
       },
       workNumber: {
-        type: Number,
+        type: String,
       },
       homeNumber: {
-        type: Number,
+        type: String,
       },
 });
 const Contacts = new mongoose.Schema({
